@@ -1,25 +1,16 @@
-//
-//  ZtrokeApp.swift
-//  Ztroke
-//
-//  Created by Zulkifli on 13/04/26.
-//
-
 import SwiftUI
-
-
-
 
 @main
 struct ZtrokeApp: App {
     @AppStorage("isOnboarding") var isOnboarding: Bool = true
+    @State private var coordinator = AppCoordinator()
 
     var body: some Scene {
         WindowGroup {
             if isOnboarding {
-                OnBoardingScreen()
+                SplashScreen()
             } else {
-                MainScreen()
+                MainScreen(coordinator: coordinator)
             }
         }
     }
