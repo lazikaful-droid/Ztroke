@@ -1,0 +1,80 @@
+# === Xcode ===
+build/
+DerivedData/
+*.xcworkspace
+!default.xcworkspace
+xcuserdata/
+*.xcuserstate
+*.xcscmblueprint
+
+# Xcode project user settings
+*.xcuserdatad/
+*.xccheckout
+*.moved-aside
+*.xcsettings
+
+# Swift Package Manager
+.build/
+Packages/
+Package.resolved
+
+# CocoaPods
+Pods/
+Podfile.lock
+*.xcworkspace
+
+# Carthage
+Carthage/Build/
+Carthage/Checkouts/
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output/
+
+# Archives
+*.xcarchive
+
+# App packaging
+*.ipa
+
+# dSYM files
+*.dSYM.zip
+*.dSYM
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+
+# Environment / secrets
+*.env
+*.env.local
+*.env.*.local
+Secrets.swift
+
+# Firebase / Google config (optional - depends on team policy)
+GoogleService-Info.plist
+
+# Temporary files
+*.swp
+*.lock
+
+# Playground
+timeline.xctimeline
+playground.xcworkspace
+
+# SwiftPM Xcode integration
+.swiftpm/
+
+# Test artifacts
+*.gcda
+*.gcno
+*.gcov
+
+# Coverage
+*.profdata
+
+.DS_Store
