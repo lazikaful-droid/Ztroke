@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct ForehandView: View {
+    @Environment(AppCoordinator.self) private var coordinator
+
     var body: some View {
         ZStack {
             Color.navy.opacity(0.05).ignoresSafeArea()
@@ -15,7 +17,9 @@ struct ForehandView: View {
                     .multilineTextAlignment(.center)
                     .padding(.horizontal, Spacing.xl)
 
-                NavigationLink(destination: TrainingSetupView(trainingType: .forehand)) {
+                Button(action: {
+                    coordinator.showTrainingSetup(for: .forehand)
+                }) {
                     Text("Start Session")
                         .font(.ztrokeCTALabel)
                         .foregroundStyle(.white)

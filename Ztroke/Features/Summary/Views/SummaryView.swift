@@ -45,7 +45,7 @@ struct SummaryView: View {
                             .fontWeight(.bold)
                             .monospaced()
                             .padding(.top, 1)
-                            .padding(.trailing, 15)
+                            .padding(.trailing, 95)
                             .padding(.leading, -5)
                             .foregroundStyle(.black)
 

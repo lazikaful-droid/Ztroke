@@ -26,7 +26,7 @@ enum StrokeType: String, CaseIterable, Identifiable, Hashable, Codable {
 
 struct PracticeSetup: Hashable {
     let stroke: StrokeType
-    let durationMinutes: Int
+    let duration: TimeInterval
 }
 
 struct PracticeOverview {
@@ -49,6 +49,7 @@ enum AppRoute: Hashable {
     case history
     case cameraSetup(StrokeType)
     case training(StrokeType)
+    case trainingSetup(StrokeType)
     case practice(PracticeSetup)
     case practiceSummary(UUID)
 }

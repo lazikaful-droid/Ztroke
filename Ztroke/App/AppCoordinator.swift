@@ -30,6 +30,18 @@ final class AppCoordinator {
         path.append(.training(stroke))
     }
 
+    func showCameraSetup(for stroke: StrokeType) {
+        path.append(.cameraSetup(stroke))
+    }
+
+    func showTrainingSetup(for stroke: StrokeType) {
+        path.append(.trainingSetup(stroke))
+    }
+
+    func showPractice(setup: PracticeSetup) {
+        path.append(.practice(setup))
+    }
+
     func addSession(_ session: SessionAnalysisSummary) {
         sessions.insert(session, at: 0)
     }

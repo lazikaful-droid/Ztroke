@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct BackhandView: View {
+    @Environment(AppCoordinator.self) private var coordinator
+
     var body: some View {
         ZStack {
             Color.navy.opacity(0.05).ignoresSafeArea()
@@ -15,7 +17,9 @@ struct BackhandView: View {
                     .multilineTextAlignment(.center)
                     .padding(.horizontal, Spacing.xl)
 
-                NavigationLink(destination: TrainingSetupView(trainingType: .backhand)) {
+                Button(action: {
+                    coordinator.showTrainingSetup(for: .backhand)
+                }) {
                     Text("Start Session")
                         .font(.ztrokeCTALabel)
                         .foregroundStyle(.white)

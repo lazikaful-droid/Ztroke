@@ -3,6 +3,7 @@ import SwiftUI
 struct TrainingSetupView: View {
     let trainingType: TrainingModule.TrainingType
     @State private var viewModel = TrainingSessionViewModel()
+    @Environment(AppCoordinator.self) private var coordinator
 
     var body: some View {
         VStack(spacing: Spacing.xl) {
@@ -26,7 +27,13 @@ struct TrainingSetupView: View {
 
             Spacer()
 
-            NavigationLink(destination: CameraSessionView(viewModel: viewModel, trainingType: trainingType)) {
+            Button(action: {
+                let setup = PracticeSetup(
+                    stroke: trainingType == .forehand ? .forehand : .backhand,
+                    duration: viewModel.selectedConfig.duration
+                )
+                coordinator.showPractice(setup: setup)
+            }) {
                 Text("Start")
                     .foregroundStyle(.white)
                     .frame(maxWidth: .infinity)

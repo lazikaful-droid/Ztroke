@@ -7,7 +7,7 @@ struct MainScreen: View {
         NavigationStack(path: $coordinator.path) {
             ZStack {
                 Color.navy
-                    .opacity(0.08)
+                    .opacity(0.009)
                     .ignoresSafeArea()
 
                 VStack {
@@ -39,13 +39,13 @@ struct MainScreen: View {
                         TrainingCard(
                             title: "Forehand",
                             mirrored: false,
-                            action: { coordinator.showTraining(for: .forehand) }
+                            action: { coordinator.showCameraSetup(for: .forehand) }
                         )
 
                         TrainingCard(
                             title: "Backhand",
                             mirrored: true,
-                            action: { coordinator.showTraining(for: .backhand) }
+                            action: { coordinator.showCameraSetup(for: .backhand) }
                         )
                     }
 
@@ -65,9 +65,16 @@ struct MainScreen: View {
                     } else {
                         BackhandView()
                     }
-                case .cameraSetup:
-                    CameraSetUpScreen(coordinator: coordinator)
-                case .practice, .practiceSummary:
+                case .cameraSetup(let stroke):
+                    CameraSetUpScreen(coordinator: coordinator, stroke: stroke)
+                case .trainingSetup(let stroke):
+                    TrainingSetupView(trainingType: stroke == .forehand ? .forehand : .backhand)
+                case .practice(let setup):
+                    CameraSessionView(
+                        viewModel: TrainingSessionViewModel(config: SessionConfig(duration: setup.duration)),
+                        trainingType: setup.stroke == .forehand ? .forehand : .backhand
+                    )
+                case .practiceSummary:
                     EmptyView()
                 }
             }

@@ -16,6 +16,10 @@ final class TrainingSessionViewModel {
     private var sessionTimer: Timer?
     private var currentCountdownValue: Int = 5
 
+    init(config: SessionConfig = .default) {
+        self.selectedConfig = config
+    }
+
     func selectConfig(_ config: SessionConfig) {
         selectedConfig = config
     }

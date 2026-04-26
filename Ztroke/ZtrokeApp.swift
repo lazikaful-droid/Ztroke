@@ -11,6 +11,7 @@ struct ZtrokeApp: App {
                 SplashScreen()
             } else {
                 MainScreen(coordinator: coordinator)
+                    .environment(coordinator)
             }
         }
     }

@@ -5,6 +5,7 @@ struct CameraSessionView: View {
     @Bindable var viewModel: TrainingSessionViewModel
     let trainingType: TrainingModule.TrainingType
     @Environment(\.dismiss) private var dismiss
+    @Environment(AppCoordinator.self) private var coordinator
 
     private let cameraState = CameraState()
     private let cameraManager: CameraSessionManager
@@ -63,7 +64,10 @@ struct CameraSessionView: View {
                     SessionSummaryOverlay(
                         summary: summary,
                         feedback: strokeAnalysisState.sessionFeedback,
-                        onDismiss: { dismiss() }
+                        onDismiss: {
+                            coordinator.addSession(summary)
+                            coordinator.returnToHome()
+                        }
                     )
                     .transition(.opacity)
                 }

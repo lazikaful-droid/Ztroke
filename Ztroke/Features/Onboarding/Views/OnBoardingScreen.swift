@@ -24,7 +24,7 @@ struct OnBoardingScreen: View {
                 .ignoresSafeArea()
 
             VStack(spacing: 0) {
-                SwiftUI.TabView(selection: $currentIndex) {
+                TabView(selection: $currentIndex) {
                     ForEach(Array(pages.enumerated()), id: \.offset) { index, page in
                         CarouselCard(imageName: page.imageName)
                             .tag(index)
@@ -53,7 +53,7 @@ struct OnBoardingScreen: View {
                         .foregroundColor(.navy)
                         .multilineTextAlignment(.center)
 
-                    Text("Practice with Zwing to improve\nyour stroke technique\nfor better badminton play.")
+                    Text("Practice with Zwing to improve\nyour stroke technique nfor better badminton play.")
                         .font(.ztrokeBody)
                         .foregroundColor(.navy)
                         .multilineTextAlignment(.center)
